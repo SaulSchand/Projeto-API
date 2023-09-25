@@ -6,9 +6,7 @@ const getAll = async () => {
 };
 
 
-const clienteNovo = async (cliente) => {
-    const {nomeCliente, foneCliente,cpfCliente,endereçoCliente} = cliente;
-    
+const clienteNovo = async (nomeCliente, foneCliente,cpfCliente,endereçoCliente) => {
     
     const clienteNovo = await connection.execute('INSERT INTO dadoscliente(nomeCliente, foneCliente, cpfCliente, endereçoCliente) VALUES (?,?,?,?)', [nomeCliente, foneCliente,cpfCliente,endereçoCliente])
 

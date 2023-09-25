@@ -8,8 +8,11 @@ const getAll = async (_req, res) => {
 }
 
 const clienteNovo = async (req, res) => {
-    //const cliente = await dadosClientes.clienteNovo();
-    return res.status(201).json(req.body)
+    const {nomeCliente, foneCliente,cpfCliente,endereçoCliente} = req.body;
+
+    const cliente = await dadosClientes.clienteNovo(nomeCliente, foneCliente,cpfCliente,endereçoCliente);
+    
+    return res.status(201).json(cliente)
 }
 
 module.exports = {
