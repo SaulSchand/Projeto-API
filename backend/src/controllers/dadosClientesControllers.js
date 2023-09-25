@@ -7,12 +7,12 @@ const getAll = async (_req, res) => {
 
 }
 
-const cadastrarCliente = async (request, res) => {
-    const createdCliente = await dadosClientes.cadastrarCliente(request.body);
-    return res.status(201).json(createdCliente);
+const clienteNovo = async (req, res) => {
+    //const cliente = await dadosClientes.clienteNovo();
+    return res.status(201).json(req.body)
 }
 
 module.exports = {
     getAll,
-    cadastrarCliente
+    clienteNovo
 }

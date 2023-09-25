@@ -1,23 +1,22 @@
 const connection = require('./connection')
 
 const getAll = async () => {
-    const dadosCliente = await connection.execute('SELECT * FROM pedido as p, dadosCLiente as c, dadosFuncionario as f, produto as s')
-    return dadosCliente[0];
+    const [dadosCliente] = await connection.execute('SELECT * FROM  dadosCLiente as c')
+    return dadosCliente;
 };
 
-const cadastrarCliente = async (params) => {
 
-const {nomeCliente, foneCliente, cpfCliente, endereçoCliente} = params;
+const clienteNovo = async (cliente) => {
+    const {nomeCliente, foneCliente,cpfCliente,endereçoCliente} = cliente;
+    
+    
+    const clienteNovo = await connection.execute('INSERT INTO dadoscliente(nomeCliente, foneCliente, cpfCliente, endereçoCliente) VALUES (?,?,?,?)', [nomeCliente, foneCliente,cpfCliente,endereçoCliente])
 
-const query = 
-
-const createdCliente = await connection.execute( "INSERT INTO dadoscliente(nomeCliente, foneCliente, cpfCliente, endereçoCliente) VALUES (?,?,?,?)", [nomeCliente, foneCliente, cpfCliente, endereçoCliente])
-
-return createdCliente;
-
+    return clienteNovo;
 }
+
 
 module.exports = {
    getAll,
-   cadastrarCliente
+   clienteNovo
 }
