@@ -12,7 +12,7 @@ const clienteNovo = async (cliente) => {
     
     const clienteNovo = await connection.execute('INSERT INTO dadoscliente(nomeCliente, foneCliente, cpfCliente, endereçoCliente) VALUES (?,?,?,?)', [nomeCliente, foneCliente,cpfCliente,endereçoCliente])
 
-    return clienteNovo;
+    return clienteNovo; 
 }
 
 
